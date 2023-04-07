@@ -1,0 +1,11 @@
+﻿{
+  "EmailServerConfig": {
+    "EmailSource": "testeeeprograma@outlook.com",
+    "Name": "teste teste",
+    "Server": "SMTP.office365.com",
+    "Port": "587",
+    "User": "testeeeprograma@outlook.com",
+    "Password": "123rji3323",
+    "SSL": true
+  }
+}
