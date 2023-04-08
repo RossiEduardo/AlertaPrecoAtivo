@@ -26,7 +26,7 @@ namespace EmailStuffs{
             //smtp
             SmtpClient smtpClient = new SmtpClient(account.Server, account.Port);
             smtpClient.EnableSsl = account.SSL;
-            smtpClient.Credentials = new NetworkCredential(account.EmailSource, account.Password);
+            smtpClient.Credentials = new NetworkCredential(account.User, account.Password);
             smtpClient.Host = account.Server;
 
             try
