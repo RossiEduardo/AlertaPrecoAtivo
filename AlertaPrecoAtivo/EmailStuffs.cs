@@ -17,7 +17,7 @@ namespace EmailStuffs{
         public static void SendEmail(EmailServerConfig account, string dest_email, string subject, string body){
             //email
             MailMessage message = new MailMessage();
-            message.From = new MailAddress(account.EmailSource);
+            message.From = new MailAddress(account.EmailSource, account.Name);
             message.To.Add(new MailAddress(dest_email));
             message.Subject = subject;
             message.SubjectEncoding = System.Text.Encoding.UTF8;
@@ -34,7 +34,7 @@ namespace EmailStuffs{
                 // realiza o envio da mensagem
                 smtpClient.Send(message);
 
-                Console.WriteLine("enviado");
+                Console.WriteLine("email enviado");
             }
             catch (Exception)
             {

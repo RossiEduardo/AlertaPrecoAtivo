@@ -1,7 +1,7 @@
 ﻿{
   "EmailServerConfig": {
     "EmailSource": "testeeeprograma@outlook.com",
-    "Name": "teste teste",
+    "Name": "App Alerta de Preço",
     "Server": "SMTP.office365.com",
     "Port": "587",
     "User": "testeeeprograma@outlook.com",
