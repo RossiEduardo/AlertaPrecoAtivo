@@ -61,3 +61,5 @@ O campo `TimeUpdateMinutes` é o tempo que a aplicação vai demorar para atuali
   - Server: SMTP.office365.com;
   - Port: 587.
 
+## OBS:
+Para uso do programa é necessário ter uma chave da API da AlphaVantage. Você deve inserir a sua chave em Program.cs no campo myApiKey.
