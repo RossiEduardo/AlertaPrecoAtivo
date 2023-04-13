@@ -42,7 +42,9 @@ Ele possui o seguinte formato:
   }
 }
 ```
-Para cada serviço de email existe um SMTP SERVER específico. Segue uma lista dos principais:<br/>
+O campo `TimeUpdateMinutes` é o tempo que a aplicação vai demorar para atualizar o preço da ação (fazer uma nova requisição para a API) <br/>
+
+### Para cada serviço de email existe um SMTP SERVER específico. Segue uma lista dos principais:<br/>
 - Gmail
   - Server: smtp.gmail.com;
   - Port: 465, caso esteja usando SSL ou 587 se for TLS.
