@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AV_api;
+using System.Globalization;
 
 namespace AlertaPrecoAtivo
 {
@@ -13,12 +14,14 @@ namespace AlertaPrecoAtivo
             }
 
             //tratando erros de input
-            string symbol = args[0];
+            string symbol = args[0].ToUpper();
+            
             try
             {
-                double compra = Convert.ToDouble(args[1]);
-                double venda = Convert.ToDouble(args[2]);
-                var stock = new AlphaVantageAPI(symbol, compra, venda, "ZQ46C6IRILKNDBH7");
+                double compra = Convert.ToDouble(args[1], CultureInfo.InvariantCulture);
+                double venda = Convert.ToDouble(args[2], CultureInfo.InvariantCulture);
+                string myApiKey = "cgs1lkhr01qkrsgj0ki0cgs1lkhr01qkrsgj0kig";
+                var stock = new AlphaVantageAPI(symbol, compra, venda, myApiKey);
                 await stock.GetPrice();
             }
             catch{

@@ -35,15 +35,20 @@ namespace AV_api
             var account = config.GetSection("EmailServerConfig").Get<EmailServerConfig>();
 
             while (true){
-                var client = new RestClient("https://www.alphavantage.co");
-                var request = new RestRequest($"query?function=GLOBAL_QUOTE&symbol={_symbol}&apikey={_myApiKey}", Method.Get);
+                var client = new RestClient("https://finnhub.io/api/v1/");
+                var request = new RestRequest("quote", Method.Get);
+                request.AddParameter("symbol", this._symbol);
+                request.AddParameter("token", this._myApiKey);
+
                 var response = client.Execute(request);
 
                 if (response.IsSuccessful){
                     dynamic data = JObject.Parse(response.Content);
-                    string price = data["Global Quote"]["05. price"];
-                    this._price = Convert.ToDouble(price, CultureInfo.InvariantCulture);
-                    Console.WriteLine($"Current price: {this._price}");
+                    //string price = data["Global Quote"]["05. price"];
+                    //this._price = Convert.ToDouble(price, CultureInfo.InvariantCulture);
+                    //obtem o preço atual
+                    this._price = Convert.ToDouble(data.c, CultureInfo.InvariantCulture);
+                    Console.WriteLine($"{this._symbol} Current price: {this._price}");
 
                     //se for diferente atualiza o current_price
                     if (current_price != this._price){
