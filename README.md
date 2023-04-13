@@ -1,5 +1,5 @@
 # AlertaPrecoAtivo
-Este projeto consiste de uma aplicação de console que verifica o preço de um determinado ativo, de escolha do usuário, da bolsa de valores, e alerta o usuário via email quando o preço fica abaixo de um valor ou acima de outro (valores que também são passados pelo usuário).
+Este projeto consiste de uma aplicação de console que verifica o preço de um determinado ativo, de escolha do usuário, da bolsa de valores americana, e alerta o usuário via email quando o preço fica abaixo de um valor ou acima de outro (valores que também são passados pelo usuário).
 
 ## Instalação e Execução
 Caso deseje instalar a aplicação em sua máquina é necessário ter os seguintes recursos: <br/>
