@@ -56,6 +56,6 @@ Para cada serviço de email existe um SMTP SERVER específico. Segue uma lista d
   - Port: 465.
 
 - Outlook.com
- - Server: SMTP.office365.com;
- - Port: 587.
+  - Server: SMTP.office365.com;
+  - Port: 587.
 
