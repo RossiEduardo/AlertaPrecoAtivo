@@ -6,9 +6,9 @@ using Microsoft.Extensions.Configuration;
 using EmailStuffs;
 using System.Threading.Tasks;
 
-namespace AV_api
+namespace Finnhub_api
 {
-    public class AlphaVantageAPI{
+    public class FinnhubAPI{
         //propriedades
         public string _symbol;
         public string _myApiKey;
@@ -16,7 +16,7 @@ namespace AV_api
         private double _valorVenda;
         private double _valorCompra;
 
-        public AlphaVantageAPI(string symbol, double valorVenda, double valorCompra, string api_key){
+        public FinnhubAPI(string symbol, double valorVenda, double valorCompra, string api_key){
             this._symbol = symbol;
             this._myApiKey = api_key;
             this._price = 0.00f;
@@ -44,8 +44,7 @@ namespace AV_api
 
                 if (response.IsSuccessful){
                     dynamic data = JObject.Parse(response.Content);
-                    //string price = data["Global Quote"]["05. price"];
-                    //this._price = Convert.ToDouble(price, CultureInfo.InvariantCulture);
+                  
                     //obtem o preço atual
                     this._price = Convert.ToDouble(data.c, CultureInfo.InvariantCulture);
                     Console.WriteLine($"{this._symbol} Current price: {this._price}");
