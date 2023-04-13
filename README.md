@@ -19,7 +19,7 @@ Caso deseje instalar a aplicação em sua máquina é necessário ter os seguint
    - Para compilar clique com o botão direito do mouse sobre o nome do Projeto (AlertaPrecoAtivo) no Gerenciador de Soluções e clique em "Compilar"
    
 4. Execute o programa pelo CMD ou pelo terminal do visual studio
-   - O executavel provavelvemente estará na pasta AlertaPrecoAtivo\bin\Debug
+   - Depois de compilar, o executavel provavelvemente estará na pasta AlertaPrecoAtivo\bin\Debug
    - O programa deve ser executado com o seguinte comando: <br/> 
    `AlertaPrecoAtivo.exe <COD_ACAO> <VALOR_VENDA> <VALOR_COMPRA>` <br/>
    ex: `AlertaPrecoAtivo.exe AAPL 180,43 150,34`
