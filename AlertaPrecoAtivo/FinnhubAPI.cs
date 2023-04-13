@@ -47,7 +47,8 @@ namespace Finnhub_api
                   
                     //obtem o preço atual
                     this._price = Convert.ToDouble(data.c, CultureInfo.InvariantCulture);
-                    Console.WriteLine($"{this._symbol} Current price: {this._price}");
+                    DateTime horas = DateTime.Now;
+                    Console.WriteLine($"{horas.ToString("G")} {this._symbol} Current price: {this._price}");
 
                     //se for diferente atualiza o current_price
                     if (current_price != this._price){
@@ -69,7 +70,7 @@ namespace Finnhub_api
                     Console.WriteLine("Falha para obter o preço da ação, fechando o programa...");
                     return;
                 }
-                //espera 1 min
+                //espera em minutos
                 await Task.Delay(60000 * account.TimeUpdateMinutes);
             }
         }
