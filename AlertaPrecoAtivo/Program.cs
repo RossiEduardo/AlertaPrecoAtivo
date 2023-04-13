@@ -18,7 +18,8 @@ namespace AlertaPrecoAtivo
             {
                 double compra = Convert.ToDouble(args[1]);
                 double venda = Convert.ToDouble(args[2]);
-                var stock = new AlphaVantageAPI(symbol, compra, venda, "APIKEY_DA_ALPHAVANTAGE");
+                string myApiKey = "SUA_APIKEY_DA_ALPHAVANTAGE";
+                var stock = new AlphaVantageAPI(symbol, compra, venda, myApiKey);
                 await stock.GetPrice();
             }
             catch{
