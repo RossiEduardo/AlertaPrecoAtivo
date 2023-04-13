@@ -62,4 +62,4 @@ O campo `TimeUpdateMinutes` é o tempo que a aplicação vai demorar para atuali
   - Port: 587.
 
 ## OBS:
-Para uso do programa é necessário ter uma chave da API da AlphaVantage. Você deve inserir a sua chave em Program.cs no campo myApiKey.
+Para uso do programa é necessário ter uma chave da API da [Finnhub](https://finnhub.io/dashboard). <br/> Quando você tiver sua chave você deve inseri-la no campo myApiKey em Program.cs.
