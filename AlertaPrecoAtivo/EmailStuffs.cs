@@ -11,14 +11,16 @@ namespace EmailStuffs{
         public string User { get; set; }
         public string Password { get; set; }
         public Boolean SSL { get; set; }
+        public string Destination { get; set; }
+        public int TimeUpdateMinutes { get; set; }
     }
 
     public class Email{
-        public static void SendEmail(EmailServerConfig account, string dest_email, string subject, string body){
+        public static void SendEmail(EmailServerConfig account, string subject, string body){
             //email
             MailMessage message = new MailMessage();
             message.From = new MailAddress(account.EmailSource, account.Name);
-            message.To.Add(new MailAddress(dest_email));
+            message.To.Add(new MailAddress(account.Destination));
             message.Subject = subject;
             message.SubjectEncoding = System.Text.Encoding.UTF8;
             message.Body = body;
@@ -34,7 +36,7 @@ namespace EmailStuffs{
                 // realiza o envio da mensagem
                 smtpClient.Send(message);
 
-                Console.WriteLine("email enviado");
+                Console.WriteLine($"email enviado para {account.Destination}");
             }
             catch (Exception)
             {

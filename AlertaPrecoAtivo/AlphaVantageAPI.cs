@@ -13,15 +13,15 @@ namespace AV_api
         public string _symbol;
         public string _myApiKey;
         private double _price;
-        private double _gain;
-        private double _loss;
+        private double _valorVenda;
+        private double _valorCompra;
 
-        public AlphaVantageAPI(string symbol, double gain, double loss, string api_key){
+        public AlphaVantageAPI(string symbol, double valorVenda, double valorCompra, string api_key){
             this._symbol = symbol;
             this._myApiKey = api_key;
             this._price = 0.00f;
-            this._gain = gain;
-            this._loss = loss;
+            this._valorVenda = valorVenda;
+            this._valorCompra = valorCompra;
         }
 
         public async Task GetPrice(){
@@ -43,23 +43,30 @@ namespace AV_api
                     dynamic data = JObject.Parse(response.Content);
                     string price = data["Global Quote"]["05. price"];
                     this._price = Convert.ToDouble(price, CultureInfo.InvariantCulture);
-                    Console.WriteLine(this._price);
+                    Console.WriteLine($"Current price: {this._price}");
 
                     //se for diferente atualiza o current_price
                     if (current_price != this._price){
                         current_price = this._price;
-                        if (current_price >= this._gain){
-                            Console.WriteLine("O preço da acao esta acima do seu valor de gain");
-                            Email.SendEmail(account, $"eduardorossi80@hotmail.com", "GAIN", "O preço da ação ultrapassou os " + _gain + " reais");
+                        if (current_price >= this._valorVenda){
+                            Console.WriteLine("O preço da acao esta acima do valor de venda");
+                            Email.SendEmail(account, "valorVenda", "O preço da ação ultrapassou os " + _valorVenda + 
+                                $" reais, o preço atual da ação está {current_price}, recomendamos a venda desta ação");
                         }
-                        if (current_price <= this._loss){
-                            Console.WriteLine("O preço da acao esta abaixo do seu valor de loss");
-                            Email.SendEmail(account, $"eduardorossi80@hotmail.com", "LOSS", "O preço da ação caiu os " + _loss + " reais");
+                        if (current_price <= this._valorCompra){
+                            Console.WriteLine("O preço da acao esta abaixo do valor de compra");
+                            Email.SendEmail(account, "valorCompra", "O preço da ação caiu dos " + _valorCompra + 
+                                $" reais, o preço atual da ação está {current_price}, recomendamos a compra desta ação");
+
                         }
                     }
                 }
+                else {
+                    Console.WriteLine("Falha para obter o preço da ação, fechando o programa...");
+                    return;
+                }
                 //espera 1 min
-                await Task.Delay(60000);
+                await Task.Delay(60000 * account.TimeUpdateMinutes);
             }
         }
     }

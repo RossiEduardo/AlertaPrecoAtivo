@@ -1,11 +1,13 @@
 ﻿{
   "EmailServerConfig": {
-    "EmailSource": "testeeeprograma@outlook.com",
+    "EmailSource": "ENDEREÇO DE EMAIL DE ENVIO",
     "Name": "App Alerta de Preço",
-    "Server": "SMTP.office365.com",
-    "Port": "587",
-    "User": "testeeeprograma@outlook.com",
-    "Password": "123rji3323",
-    "SSL": true
+    "Server": "SMTP SERVER",
+    "Port": "PORTA SMTP SERVER",
+    "User": "ENDEREÇO DE EMAIL DE ENVIO",
+    "Password": "SENHA DO EMAIL DE ENVIO",
+    "SSL": true,
+    "Destination": "ENDEREÇO DE EMAIL DE DESTINO",
+    "TimeUpdateMinutes": 1
   }
 }
