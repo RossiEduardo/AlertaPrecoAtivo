@@ -22,7 +22,7 @@ Caso deseje instalar a aplicação em sua máquina é necessário ter os seguint
    - Depois de compilar, o executavel provavelvemente estará na pasta AlertaPrecoAtivo\bin\Debug
    - O programa deve ser executado com o seguinte comando: <br/> 
    `AlertaPrecoAtivo.exe <COD_ACAO> <VALOR_VENDA> <VALOR_COMPRA>` <br/>
-   ex: `AlertaPrecoAtivo.exe AAPL 180,43 150,34`
+   ex: `AlertaPrecoAtivo.exe AAPL 180.43 150.34`
 
 ## Configurando o smtpconfig.json
 O smtpconfig.json é um arquivo de configuração com o e-mail de destino dos alertas e as configurações de acesso ao servidor de SMTP que irá enviar o e-mail.<br/>
