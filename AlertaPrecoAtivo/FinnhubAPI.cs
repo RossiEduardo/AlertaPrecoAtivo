@@ -44,30 +44,36 @@ namespace Finnhub_api
 
                 if (response.IsSuccessful){
                     dynamic data = JObject.Parse(response.Content);
-                  
+                    if (data.dp == null)
+                    {
+                        Console.WriteLine("Falha para obter o preço da ação. Verifique se você digitou o código da ação corretamente");
+                        Console.WriteLine("fechando o programa...");
+                        return;
+                    }
+
                     //obtem o preço atual
                     this._price = Convert.ToDouble(data.c, CultureInfo.InvariantCulture);
                     DateTime horas = DateTime.Now;
-                    Console.WriteLine($"{horas.ToString("G")} {this._symbol} Current price: {this._price}");
+                    Console.WriteLine($"{horas:G} {this._symbol} Current price: {this._price:F}");
 
                     //se for diferente atualiza o current_price
                     if (current_price != this._price){
                         current_price = this._price;
                         if (current_price >= this._valorVenda){
                             Console.WriteLine("O preço da acao esta acima do valor de venda");
-                            Email.SendEmail(account, "valorVenda", "O preço da ação ultrapassou os " + _valorVenda + 
-                                $" reais, o preço atual da ação está {current_price}, recomendamos a venda desta ação");
+                            Email.SendEmail(account, "Sua Ação atingiu o valor de Venda", $"O preço de {this._symbol} ultrapassou os " + 
+                                $" {this._valorVenda} reais, o preço atual da ação está {current_price:F}, recomendamos a venda dela");
                         }
                         if (current_price <= this._valorCompra){
                             Console.WriteLine("O preço da acao esta abaixo do valor de compra");
-                            Email.SendEmail(account, "valorCompra", "O preço da ação caiu dos " + _valorCompra + 
-                                $" reais, o preço atual da ação está {current_price}, recomendamos a compra desta ação");
+                            Email.SendEmail(account, "Sua ação atingiu o valor de Compra", $"O preço de {this._symbol} caiu dos " + 
+                                $"{this._valorCompra} reais, o preço atual da ação está {current_price:F}, recomendamos a compra dela");
 
                         }
                     }
                 }
                 else {
-                    Console.WriteLine("Falha para obter o preço da ação, fechando o programa...");
+                    Console.WriteLine("Falha na chamada da API");
                     return;
                 }
                 //espera em minutos

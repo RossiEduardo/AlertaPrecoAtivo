@@ -20,7 +20,13 @@ namespace AlertaPrecoAtivo
             {
                 double compra = Convert.ToDouble(args[1], CultureInfo.InvariantCulture);
                 double venda = Convert.ToDouble(args[2], CultureInfo.InvariantCulture);
-                string myApiKey = "cgs1lkhr01qkrsgj0ki0cgs1lkhr01qkrsgj0kig";
+                if(compra == venda)
+                {
+                    Console.WriteLine("Os valores de compra e venda devem ser diferentes");
+                    return 1;
+                }
+                        
+                string myApiKey = "SUA_API_KEY_DA_FINNHUB";
 
                 var stock = new FinnhubAPI(symbol, compra, venda, myApiKey);
                 await stock.GetPrice();
