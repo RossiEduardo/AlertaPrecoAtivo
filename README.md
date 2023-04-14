@@ -42,7 +42,7 @@ Ele possui o seguinte formato:
   }
 }
 ```
-O campo `TimeUpdateMinutes` é o tempo que a aplicação vai demorar para atualizar o preço da ação (fazer uma nova requisição para a API) <br/>
+Insira os dados de email e configuração do SMTP server em seus respectivos campos.<br/>
 
 ### Para cada serviço de email existe um SMTP SERVER específico. Segue uma lista dos principais:<br/>
 - Gmail
