@@ -38,7 +38,7 @@ Ele possui o seguinte formato:
     "Password": "SENHA DO EMAIL DE ENVIO",
     "SSL": true,
     "Destination": "ENDEREÇO DE EMAIL DE DESTINO",
-    "TimeUpdateMinutes": 1
+    "TimeUpdateMinutes": "TEMPO DE ATUALIZACAO DAS ACOES"
   }
 }
 ```
@@ -63,3 +63,7 @@ O campo `TimeUpdateMinutes` é o tempo que a aplicação vai demorar para atuali
 
 ## OBS:
 Para uso do programa é necessário ter uma chave da API da [Finnhub](https://finnhub.io/dashboard). <br/> Quando você tiver sua chave você deve inseri-la no campo myApiKey em Program.cs.
+
+
+## Exemplo de uso:
+![image](https://user-images.githubusercontent.com/44558872/232075084-619af754-d0bb-4abd-816a-8a5f75620e44.png)
