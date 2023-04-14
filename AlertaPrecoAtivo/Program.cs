@@ -31,8 +31,8 @@ namespace AlertaPrecoAtivo
                 var stock = new FinnhubAPI(symbol, compra, venda, myApiKey);
                 await stock.GetPrice();
             }
-            catch{
-                Console.WriteLine("O valor informado para compra e venda não estão no formato correto, digite um número");
+            catch(Exception e){
+                Console.WriteLine("Erro : " + e.Message);
                 return 1;
             }
 
