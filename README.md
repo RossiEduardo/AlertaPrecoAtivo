@@ -1,24 +1,8 @@
 # AlertaPrecoAtivo
 Este projeto consiste de uma aplicação de console que verifica o preço de um determinado ativo, de escolha do usuário, da bolsa de valores americana, e alerta o usuário via email quando o preço fica abaixo de um valor ou acima de outro (valores que também são passados pelo usuário).
 
-## Instalação e Execução
-Caso deseje instalar a aplicação em sua máquina é necessário ter os seguintes recursos: <br/>
-1. Visual Studio
-
-2. Pacotes (caso precise instale-os via Gerenciador de Pacotes do NuGet):
-   - RestSharp
-   - Newtonsoft.Json
-   - Microsoft.Extensions.Configuration
-   - System.Threading.Tasks
-   - System.Threading.Tasks.Extensions
-   - System
-   - System.Net
-   - System.Net.Mail
-   
-3. Compile o programa
-   - Para compilar clique com o botão direito do mouse sobre o nome do Projeto (AlertaPrecoAtivo) no Gerenciador de Soluções e clique em "Compilar"
-   
-4. Execute o programa pelo CMD ou pelo terminal do visual studio
+## Instruções de Execução
+Execute o programa pelo CMD ou pelo terminal do visual studio
    - Depois de compilar, o executavel provavelvemente estará na pasta AlertaPrecoAtivo\bin\Debug
    - O programa deve ser executado com o seguinte comando: <br/> 
    `AlertaPrecoAtivo.exe <COD_ACAO> <VALOR_VENDA> <VALOR_COMPRA>` <br/>
@@ -62,7 +46,7 @@ Insira os dados de email e configuração do SMTP server em seus respectivos cam
   - Port: 587.
 
 ## OBS:
-Para uso do programa é necessário ter uma chave da API da [Finnhub](https://finnhub.io/dashboard). <br/> Quando você tiver sua chave você deve inseri-la no campo myApiKey em Program.cs.
+Para uso do programa é necessário ter uma chave da API da [Finnhub](https://finnhub.io/dashboard). <br/> Você deve inseri-la no campo myApiKey em Program.cs.
 
 
 ## Exemplo de uso:
